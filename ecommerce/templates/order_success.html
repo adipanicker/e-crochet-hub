@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+    .success-container {
+        max-width: 650px;
+        margin: 50px auto;
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0px 5px 20px rgba(0,0,0,0.15);
+        text-align: center;
+        animation: fadeInUp 0.6s ease-out;
+    }
+
+    .success-icon {
+        font-size: 70px;
+        color: #28a745;
+        animation: pop 0.4s ease-out;
+    }
+
+    @keyframes pop {
+        0% { transform: scale(0.5); opacity: 0; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+        0% { transform: translateY(20px); opacity: 0; }
+        100% { transform: translateY(0); opacity: 1; }
+    }
+
+    .details-card {
+        text-align: left;
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+
+    .item-row {
+        padding: 10px 0;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .item-row:last-child {
+        border-bottom: none;
+    }
+</style>
+
+<div class="container">
+    <div class="success-container">
+
+        <div class="success-icon">✔</div>
+
+        <h2 class="mt-3">Order Placed Successfully!</h2>
+        <p class="text-muted">Thank you for shopping with us 🎉</p>
+
+        <h4 class="mt-4">Order Summary</h4>
+
+        <div class="details-card">
+            <p><strong>Order ID:</strong> {{ order.id }}</p>
+            <p><strong>Total Amount:</strong> ₹{{ order.total_amount }}</p>
+
+            <h5 class="mt-3">Items Ordered:</h5>
+
+            {% for i in items %}
+            <div class="item-row">
+                <strong>{{ i.product.name }}</strong><br>
+                Qty: {{ i.qty }} — ₹{{ i.price }}
+            </div>
+            {% endfor %}
+        </div>
+
+        <a href="/" class="btn btn-success mt-4 px-4">🏠 Back to Home</a>
+    </div>
+</div>
+
+{% endblock %}

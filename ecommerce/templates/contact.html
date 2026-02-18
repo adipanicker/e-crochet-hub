@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Contact Us{% endblock %}
+{% block content %}
+
+<style>
+    .contact-hero {
+        width: 100%;
+        height: 90vh;
+        background: url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1950&q=80')
+                    no-repeat center/cover;
+        display: flex;
+        {% comment %} justify-content: center; {% endcomment %}
+        align-items: center;
+        position: relative;
+    }
+
+    .contact-overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.45);
+    }
+
+    .contact-container {
+        width: 85%;
+        max-width: 1100px;
+        display: flex;
+        gap: 25px;
+        z-index: 2;
+    }
+    .center{
+        text-align: center;
+    }
+    .contact-card {
+        background: white;
+        padding: 40px;
+        margin-left: 460px;
+        justify-content: center;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+        width: 50%;
+    }
+
+    .contact-card h3 {
+        font-weight: bold;
+    }
+
+    .info-item {
+        margin-bottom: 15px;
+    }
+    .contact-card a {
+    color: black;        /* normal text color */
+    text-decoration: none;  /* remove underline */
+    font-weight: 500;    /* little bold */
+}
+
+.contact-card a:hover {
+    color: #555;         /* slight color change on hover */
+}
+
+</style>
+
+<div class="contact-hero">
+
+    <div class="contact-overlay"></div>
+
+    <div class="contact-container">
+
+        <!-- RIGHT CARD (FORM) -->
+        <div class="contact-card row justify-content-center">
+
+            <center><h3>📬 Send Us Message</h3>
+            <p class="text-muted">We will always with you.</p>
+            </center>
+            {% if messages %}
+                {% for msg in messages %}
+                    <div class="alert alert-success">{{ msg }}</div>
+                {% endfor %}
+            {% endif %}
+
+            <form method="POST">
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" name="name" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" name="email" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Message</label>
+                    <textarea name="message" class="form-control" rows="4" required></textarea>
+                </div>
+<br>
+                <button class="btn btn-dark w-100">Send Message</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

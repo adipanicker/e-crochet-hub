@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
+<section class="hero" style="
+background:
+linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+url('{% static "images/bg.webp" %}') no-repeat center/cover;
+">
+{% comment %} <section class="hero" style="background: url('{% static "images/bg.webp" %}') no-repeat center/cover;"> {% endcomment %}
+    
+    <div>
+        <h1 style="color:rgba(190, 183, 183, 1); text-shadow: 2px 2px 5px rgba(144, 54, 54, 0.5);">Handcrafted Crochet for Every Home</h1>
+        <p style="color:rgba(204, 199, 199, 0.82); text-shadow: 2px 2px 5px rgba(144, 54, 54, 0.5);">Unique, sustainable, and thoughtfully handmade crochet products that add warmth and personality to living spaces.</p>
+    </div>
+</section>
+<section class="categories">
+    <h2>Our Collections</h2>
+
+    <div class="cat-container">
+
+        <div class="cat-container">
+
+    <a href="/accessories" class="cat-box">
+        <img src="{% static 'images/acc2.avif' %}">
+        <h3>Accessories</h3>
+    </a>
+
+    <a href="/clothings" class="cat-box">
+        <img src="{% static 'images/cloth1.webp' %}">
+        <h3>Clothings</h3>
+    </a>
+
+    <a href="/bags" class="cat-box">
+        <img src="{% static 'images/purse5.jpg' %}">
+        <h3>Bags</h3>
+    </a>
+
+    <a href="/decor_items" class="cat-box">
+        <img src="{% static 'images/decor1.webp' %}">
+        <h3>Decor Items</h3>
+    </a>
+
+</div>
+
+    </div> 
+  </section>
+    
+<!-- FEATURED PRODUCTS -->
+<section class="featured">
+    <h2>Featured Products</h2>
+
+    <div class="featured-container">
+
+        <div class="feature-box">
+            <img src="{% static 'images/hd.jpg' %}">
+            <h3>Handcrafted Wall Decor</h3>
+            <p>Beautiful handmade crochet wall décor.</p>
+        </div>
+
+        <div class="feature-box">
+            <img src="{% static 'images/hacc.webp' %}">
+            <h3>Crochet Home Accessories</h3>
+            <p>Eco-friendly and stylish crochet décor.</p>
+        </div>
+
+        <div class="feature-box">
+            <img src="{% static 'images/purse2.webp' %}">
+            <h3>Handmade Crochet Bags</h3>
+            <p>Unique bags crafted with care.</p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- WHY CHOOSE US -->
+<section class="why-us">
+    <h2>Why Choose E-Crochet Hub?</h2>
+
+    <div class="why-container">
+
+        <div class="why-box">
+            <i class="bi bi-truck"></i>
+            <h3>Handmade Products</h3>
+            <p>Each item is carefully handmade with love.</p>
+        </div>
+
+        <div class="why-box">
+            <i class="bi bi-award"></i>
+            <h3>Premium Yarn Quality</h3>
+            <p>Soft, durable, and eco-friendly materials.</p>
+        </div>
+
+        <div class="why-box">
+            <i class="bi bi-cash-stack"></i>
+            <h3>Affordable Handmade Prices</h3>
+            <p>Quality crochet at reasonable prices.</p>
+        </div>
+
+        <div class="why-box">
+            <i class="bi bi-shield-check"></i>
+            <h3>Secure Shopping</h3>
+            <p>Safe payments and trusted checkout.</p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+    <h2>What Our Customers Say</h2>
+
+    <div class="test-container">
+
+        <div class="test-box">
+            <p>"The crochet bag quality is amazing. Loved the handmade feel!"</p>
+            <h4>- Priya Sharma</h4>
+        </div>
+
+        <div class="test-box">
+            <p>"Beautiful crochet home décor. Totally worth the price."</p>
+            <h4>- Rohan Patel</h4>
+        </div>
+
+        <div class="test-box">
+            <p>"Unique designs and great finishing. Highly recommended!"</p>
+            <h4>- Anjali Verma</h4>
+        </div>
+
+    </div>
+</section>
+
+</section>
+
+{% endblock %}

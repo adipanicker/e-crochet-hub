@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Feedback{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+            <!-- FEEDBACK FORM ONLY IF LOGGED IN -->
+            {% if request.user.is_authenticated %}
+            <div class="card shadow-lg mt-4">
+                <div class="card-header bg-secondary text-white text-center">
+                    <h4>Share Your Feedback</h4>
+                </div>
+
+                <div class="card-body">
+
+                    {% if messages %}
+                        {% for msg in messages %}
+                            <div class="alert alert-success">{{ msg }}</div>
+                        {% endfor %}
+                    {% endif %}
+
+                    <form method="POST">
+                        {% csrf_token %}
+
+                        <!-- Display user info -->
+                        <div class="mb-3">
+                            <label class="form-label">Username</label>
+                            <input type="text" class="form-control"
+                                   value="{{ request.user.first_name|default:request.user.username }}" disabled>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control"
+                                   value="{{ request.user.email }}" disabled>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Reviews</label>
+                            <textarea name="message" rows="4" class="form-control" required></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Rating</label>
+                            <select name="rating" class="form-control" required>
+                                <option value="">--Select--</option>
+                                <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+                                <option value="4">⭐⭐⭐⭐ Very Good</option>
+                                <option value="3">⭐⭐⭐ Good</option>
+                                <option value="2">⭐⭐ Average</option>
+                                <option value="1">⭐ Poor</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-dark w-100">Submit Feedback</button>
+                    </form>
+
+                </div>
+            </div>
+
+            {% else %}
+            <!-- IF NOT LOGGED IN -->
+            <div class="alert alert-info text-center mt-4">
+                <p>You must <a href="{% url 'login' %}">log in</a> to submit feedback.</p>
+            </div>
+            {% endif %}
+
+            <hr class="mt-4">
+
+            <!-- SHOW ALL FEEDBACKS (NOW BELOW FORM) -->
+            <h3 class="mb-3 text-center">What People Say</h3>
+
+            {% for fb in feedback_list %}
+                <div class="card mb-3 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="fw-bold">{{ fb.name }}</h5>
+                        <p>{{ fb.message }}</p>
+                        <span class="badge bg-warning text-dark">
+                            ⭐ {{ fb.rating }}
+                        </span>
+                        <small class="text-muted float-end">
+                            {{ fb.created_at|date:"d M Y, h:i A" }}
+                        </small>
+                    </div>
+                </div>
+            {% empty %}
+                <p class="text-center">No feedback yet.</p>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+{% endblock %}

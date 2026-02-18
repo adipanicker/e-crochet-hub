@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mt-4">
+    <h2>Your Cart</h2>
+    <hr>
+
+    {% if items %}
+    <table class="table table-bordered align-middle text-center">
+        <tr>
+            <th>Image</th>
+            <th>Product</th>
+            <th>Qty</th>
+            <th>Price</th>
+            <th>Subtotal</th>
+            <th>Action</th>
+        </tr>
+
+        {% for item in items %}
+        <tr>
+            <!-- Product Image -->
+            <td>
+                <img src="{{ item.product.image.url }}" 
+                     alt="{{ item.product.name }}" 
+                     style="width: 70px; height: 70px; object-fit: cover; border-radius: 8px;">
+            </td>
+
+            <!-- Product Name -->
+            <td>{{ item.product.name }}</td>
+
+            <!-- Quantity Controls -->
+            <td>
+                <a href="{% url 'decrease_qty' item.product.id %}" class="btn btn-sm btn-warning">−</a>
+                <span class="mx-2">{{ item.qty }}</span>
+                <a href="{% url 'increase_qty' item.product.id %}" class="btn btn-sm btn-success">+</a>
+            </td>
+
+            <!-- Price -->
+            <td>₹{{ item.product.price }}</td>
+
+            <!-- Subtotal -->
+            <td>₹{{ item.subtotal }}</td>
+
+            <!-- Remove Button -->
+            <td>
+                <a href="{% url 'remove_item' item.product.id %}" class="btn btn-sm btn-danger">Remove</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h4 class="text-end">Total: <strong>₹{{ total }}</strong></h4>
+
+    <a href="{% url 'checkout' %}" class="btn btn-primary">Proceed to Checkout</a>
+
+    {% else %}
+    <h4>Your cart is empty.</h4>
+    {% endif %}
+</div>
+
+{% endblock %}

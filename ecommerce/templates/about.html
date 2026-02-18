@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}About Us | E-Crochet-Hub{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'home.css' %}">
+
+<!-- TOP BANNER -->
+{% comment %} <section class="about-hero"
+style="background: url('{% static 'images/aboutbg.webp' %}') center/cover no-repeat;">
+    <div class="overlay"></div>
+    <div class="about-hero-content">
+        <h1>E-Crochet Hub</h1>
+        <p>Handmade with Love • Crafted with Care • Crochet for Every Home</p>
+    </div>
+</section> {% endcomment %}
+<!-- ABOUT US WRAPPER -->
+<section class="about-wrapper mt-10">
+
+    <!-- JOURNEY / STORY SECTION -->
+    <section class="story-section">
+        <div class="story-img">
+            <img src="{% static 'images/about.png' %}" alt="Handmade Crochet Products">
+        </div>
+
+        <div class="story-text">
+                <center><h2>Our Journey</h2></center>
+            <p>
+                E-Crochet Hub began with a simple passion for handmade crochet and a deep respect for traditional craftsmanship. What started as a small collection of lovingly crafted crochet items has grown into a dedicated online platform connecting skilled artisans with customers who value uniqueness and quality.
+            <p>
+                In the early days, our focus was on learning and preserving crochet techniques passed down through generations. Each product reflected patience, creativity, and attention to detail, making every piece truly one of a kind.
+            </p>
+
+            <p>
+                As the demand for handmade and sustainable products increased, E-Crochet Hub evolved to meet modern customer needs. We introduced contemporary designs, improved accessibility through online shopping, and expanded our range to include home décor, fashion accessories, gifts, and custom crochet items.
+            </p>
+            
+            <p>              
+                Today, E-Crochet Hub represents a perfect blend of tradition and modern convenience. Our platform celebrates the art of crochet while providing customers with a seamless and enjoyable shopping experience.
+            </p>
+        </div>
+    </section>
+
+    <!-- MISSION & VISION SECTION -->
+    <section class="featured">
+        <h2 class="center-heading">Our Mission & Vision</h2>
+
+        <div class="featured-container">
+
+            <div class="feature-box">
+                <img src="{% static 'images/mision1.jpg' %}" alt="Crochet Artisans">
+                <h3>Our Mission</h3>
+                <p>
+                    To promote handmade crochet craftsmanship by providing a reliable online platform that connects artisans with customers, offering high-quality, sustainable, and beautifully crafted crochet products.
+                </p>
+            </div>
+
+            <div class="feature-box">
+                <img src="{% static 'images/vision.jpg' %}" alt="Crochet Artisans">
+                <h3>Our Vision</h3>
+                <p>
+                    To become a trusted and recognized brand in handmade crochet, supporting artisans, preserving traditional skills, and delivering unique crochet creations to homes across the country.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+</section>
+
+
+<!-- STATS -->
+<section class="stats-section">
+    <div class="stat-box">
+        <h3>10k+</h3>
+        <p>Happy Customers</p>
+    </div>
+
+    <div class="stat-box">
+        <h3>800+</h3>
+        <p>Products Delivered</p>
+    </div>
+
+    <div class="stat-box">
+        <h3>4.8★</h3>
+        <p>Customer Rating</p>
+    </div>
+
+    <div class="stat-box">
+        <h3>3 Years</h3>
+        <p>Of Excellence</p>
+    </div>
+</section>
+
+<!-- VALUES SECTION -->
+<section class="values-section">
+    <h2>What We Believe In</h2>
+
+    <div class="values-container">
+        <div class="value-box">
+            <i class="bi bi-brush"></i>
+            <h3>Handmade Excellence</h3>
+            <p>Every crochet product is carefully handcrafted with precision and creativity.</p>
+        </div>
+
+        <div class="value-box">
+            <i class="bi bi-emoji-smile"></i>
+            <h3>Customer Satisfaction</h3>
+            <p>We focus on quality, comfort, and trust to ensure a delightful experience.</p>
+        </div>
+
+        <div class="value-box">
+            <i class="bi bi-lightning-charge"></i>
+            <h3>Sustainability</h3>
+            <p>We support eco-friendly practices and promote slow, handmade fashion.</p>
+        </div>
+
+        <div class="value-box">
+            <i class="bi bi-shield-lock"></i>
+            <h3>Trust & Transparency</h3>
+            <p>Secure shopping, authentic products, and honest craftsmanship.</p>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock %}

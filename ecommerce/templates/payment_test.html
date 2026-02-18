@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="card shadow-lg p-4" style="max-width: 450px; width:100%; border-radius:15px;">
+        
+        <h2 class="text-center mb-3" style="font-weight:700;">💳 Online Payment (Test Mode)</h2>
+
+        <p class="text-center text-muted">
+            Scan the QR code (demo only — no real payment)
+        </p>
+
+        <div class="text-center my-3">
+            <img src="{% static 'images/QR.png' %}" 
+                 alt="Fake QR Code" 
+                 style="width:220px; height:220px; border:5px solid #eee; border-radius:10px;">
+        </div>
+
+        <!-- Payable Amount -->
+        <div class="d-flex justify-content-between mb-3">
+            <strong>Payable Amount:</strong>
+            <h4 class="text-success">₹{{ order.total_amount }}</h4>
+        </div>
+
+        <div class="alert alert-info text-center">
+            This QR is for testing only.
+        </div>
+
+        <form method="POST">
+            {% csrf_token %}
+            <button class="btn btn-success w-100 py-2" style="font-size: 18px; border-radius:10px;">
+                ✔ Payment Successful (Simulate)
+            </button>
+        </form>
+
+        <p class="text-center text-muted mt-3" style="font-size: 14px;">
+            After clicking the button, order will be marked as <strong>Paid</strong>.
+        </p>
+    </div>
+</div>
+
+{% endblock %}

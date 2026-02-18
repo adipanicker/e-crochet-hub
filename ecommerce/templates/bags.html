@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Bags{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Bags</h2>
+
+    <div class="row">
+        {% for item in products %}
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                {% if item.image %}
+                    <img src="{{ item.image.url }}"
+                         class="card-img-top"
+                         style="height:250px; object-fit:cover;">
+                {% endif %}
+
+                <div class="card-body">
+                    <h5 class="card-title">{{ item.name }}</h5>
+                    <p>{{ item.description|truncatewords:15 }}</p>
+                    <p class="fw-bold">₹{{ item.price }}</p>
+                    <a href="{% url 'add_to_cart' item.id %}"
+                       class="btn btn-primary w-100 mt-2">
+                        Add to Cart
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        {% empty %}
+        <div class="col-12 text-center">
+            <p class="text-muted">No products available</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

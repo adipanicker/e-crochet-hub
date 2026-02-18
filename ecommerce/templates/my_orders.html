@@ -1,0 +1,48 @@
+<!-- templates/my_orders.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>My Orders</h2>
+
+    {% if orders %}
+    <table class="table table-bordered mt-3">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Date</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th>Invoice</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for order in orders %}
+            <tr>
+                <td>#{{ order.id }}</td>
+                <td>{{ order.created_at|date:"d M Y" }}</td>
+                <td>₹{{ order.total_amount }}</td>
+                <td>
+                    <span class="badge bg-info">
+                        {{ order.order_status }}
+                    </span>
+                </td>
+                <td>
+            {% if order.payment_method == "ONLINE" and order.payment_status == "Paid" %}
+                <a href="{% url 'download_invoice' order.id %}"
+                   class="btn btn-sm btn-outline-primary">
+                    Download Invoice
+                </a>
+            {% else %}
+                —
+            {% endif %}
+        </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p>No orders found.</p>
+    {% endif %}
+</div>
+{% endblock %}
