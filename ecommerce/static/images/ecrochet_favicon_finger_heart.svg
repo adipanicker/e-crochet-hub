@@ -1,0 +1,22 @@
+<svg width="100%" viewBox="0 0 680 680" role="img" xmlns="http://www.w3.org/2000/svg" style="">
+  <title style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">E-Crochet Hub favicon - finger heart</title>
+  <desc style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Korean finger heart hand gesture on beige background</desc>
+
+  <rect x="170" y="170" width="340" height="340" rx="80" fill="#F5ECD7" style="fill:rgb(245, 236, 215);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Palm / hand base -->
+  <rect x="295" y="390" width="90" height="80" rx="18" fill="#E8B89A" style="fill:rgb(232, 184, 154);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Index finger - curves left to make heart -->
+  <path d="M295 390 Q295 340 310 310 Q320 285 330 275 Q340 268 340 280 Q340 300 330 320 Q320 345 318 390" fill="#E8B89A" stroke="#E8B89A" stroke-width="2" style="fill:rgb(232, 184, 154);stroke:rgb(232, 184, 154);color:rgb(255, 255, 255);stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Thumb - curves right to make heart -->
+  <path d="M385 390 Q385 340 370 310 Q360 285 350 275 Q340 268 340 280 Q340 300 350 320 Q360 345 362 390" fill="#E8B89A" stroke="#E8B89A" stroke-width="2" style="fill:rgb(232, 184, 154);stroke:rgb(232, 184, 154);color:rgb(255, 255, 255);stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Heart shape formed at top where fingers meet -->
+  <path d="M340 280&#10;           Q328 262 315 262&#10;           Q300 262 300 278&#10;           Q300 294 320 310&#10;           Q330 318 340 326&#10;           Q350 318 360 310&#10;           Q380 294 380 278&#10;           Q380 262 365 262&#10;           Q352 262 340 280Z" fill="#C45C8A" style="fill:rgb(196, 92, 138);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Finger separation line -->
+  <line x1="340" y1="326" x2="340" y2="395" stroke="#D4A882" stroke-width="3" style="fill:rgb(0, 0, 0);stroke:rgb(212, 168, 130);color:rgb(255, 255, 255);stroke-width:3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+</svg>

@@ -344,6 +344,10 @@ def remove_from_wishlist(request, item_id):
     Wishlist.objects.filter(id=item_id, user=request.user).delete()
     return redirect('wishlist')
 
+def product_detail(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    return render(request, 'product_detail.html', {'product': product})
+
 from django.http import HttpResponse
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfgen import canvas

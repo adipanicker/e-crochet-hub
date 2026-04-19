@@ -26,7 +26,7 @@ urlpatterns = [
     # ---------- Home & Category ----------
     path('', views.home, name='home'),
     path('category/<int:category_id>/', views.category_products, name='category_products'),
-    # path('product/<int:product_id>/', views.product_detail, name='product_detail'),
+    path('product/<int:product_id>/', views.product_detail, name='product_detail'),
 
     # ---------- Auth ----------
     path('signup/', views.signup_view, name='signup'),
@@ -53,6 +53,8 @@ urlpatterns = [
     path('increase-qty/<int:product_id>/', views.increase_qty, name='increase_qty'),
     path('decrease-qty/<int:product_id>/', views.decrease_qty, name='decrease_qty'),
     path('remove-item/<int:product_id>/', views.remove_item, name='remove_item'),
+
+    path('product/<int:product_id>/', views.product_detail, name='product_detail'),
 
 
     # Checkout & Orders  (FIXED)

@@ -1,0 +1,67 @@
+{% extends 'base.html' %} {% block content %}
+
+<div
+  style="
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+  "
+>
+  <!-- Product Image -->
+  <div style="flex: 1; min-width: 280px">
+    {% if product.image %}
+    <img
+      src="{{ product.image.url }}"
+      alt="{{ product.name }}"
+      style="width: 100%; border-radius: 12px; object-fit: cover"
+    />
+    {% endif %}
+  </div>
+
+  <!-- Product Info -->
+  <div style="flex: 1; min-width: 280px">
+    <h1>{{ product.name }}</h1>
+    <p style="font-size: 1.5rem; font-weight: bold; color: #c45c8a">
+      ₹{{ product.price }}
+    </p>
+    <p>{{ product.description }}</p>
+    <p><strong>Category:</strong> {{ product.category }}</p>
+
+    <a
+      href="{% url 'add_to_cart' product.id %}"
+      style="
+        display: inline-block;
+        margin-top: 20px;
+        padding: 12px 30px;
+        background: #c45c8a;
+        color: white;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+      "
+    >
+      Add to Cart
+    </a>
+
+    <a
+      href="javascript:history.back()"
+      style="
+        display: inline-block;
+        margin-top: 20px;
+        margin-left: 10px;
+        padding: 12px 30px;
+        border: 2px solid #c45c8a;
+        color: #c45c8a;
+        border-radius: 8px;
+        text-decoration: none;
+      "
+    >
+      ← Back
+    </a>
+  </div>
+</div>
+
+{% endblock %}

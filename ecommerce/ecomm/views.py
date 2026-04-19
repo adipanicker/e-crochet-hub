@@ -1,4 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, 
+from django.shortcuts import render, redirect, get_object_or_404
+from app.models import Product, Order # Add Product here!
 
 def home(request):
     return render(request, "home.html")
@@ -102,6 +104,11 @@ def signup_view(request):
         return redirect('login')
 
     return render(request, "signup.html")
+
+def product_detail(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    return render(request, 'product_detail.html', {'product': product})
+
 
 from django.contrib.auth import logout
 from django.shortcuts import redirect
