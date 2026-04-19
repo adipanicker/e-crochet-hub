@@ -1,68 +1,62 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+{% block title %}{{ product.name }}{% endblock %}
 {% block content %}
 
-<div
-  style="
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 0 20px;
-    display: flex;
-    gap: 40px;
-    flex-wrap: wrap;
-  "
->
-  <!-- Product Image -->
-  <div style="flex: 1; min-width: 280px">
-    {% if product.image %}
-    <img
-      src="{{ product.image.url }}"
-      alt="{{ product.name }}"
-      style="width: 100%; border-radius: 12px; object-fit: cover"
-    />
-    {% endif %}
-  </div>
+<div class="container mt-5" style="max-width: 900px;">
+    <div class="row g-4">
+        
+        <!-- Product Image -->
+        <div class="col-md-6">
+            {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{{ product.name }}"
+                     class="img-fluid rounded shadow"
+                     style="width: 100%; height: 400px; object-fit: cover;">
+            {% else %}
+                <div class="bg-light rounded d-flex align-items-center justify-content-center"
+                     style="height: 400px;">
+                    <span class="text-muted">No image available</span>
+                </div>
+            {% endif %}
+        </div>
 
-  <!-- Product Info -->
-  <div style="flex: 1; min-width: 280px">
-    <h1>{{ product.name }}</h1>
-    <p style="font-size: 1.5rem; font-weight: bold; color: #c45c8a">
-      ₹{{ product.price }}
-    </p>
-    <p>{{ product.description }}</p>
-    <p><strong>Category:</strong> {{ product.category }}</p>
+        <!-- Product Info -->
+        <div class="col-md-6">
+            <h2 class="fw-bold">{{ product.name }}</h2>
+            <p class="text-muted">{{ product.category }}</p>
 
-    <a
-      href="{% url 'add_to_cart' product.id %}"
-      style="
-        display: inline-block;
-        margin-top: 20px;
-        padding: 12px 30px;
-        background: #c45c8a;
-        color: white;
-        border-radius: 8px;
-        text-decoration: none;
-        font-weight: bold;
-      "
-    >
-      Add to Cart
-    </a>
+            <!-- Fake Star Rating -->
+            <div class="mb-3">
+                {% with rating=product.id|stringformat:"s" %}
+                {% comment %}Generate consistent fake rating{% endcomment %}
+                {% endwith %}
+                <span style="color: #f5a623; font-size: 1.3rem;">★★★★</span><span style="color: #f5a623; font-size: 1.3rem; opacity: 0.5;">★</span>
+                <span class="text-muted ms-2" style="font-size: 0.9rem;">
+                    ({{ product.id|add:"23" }} reviews)
+                </span>
+            </div>
 
-    <a
-      href="javascript:history.back()"
-      style="
-        display: inline-block;
-        margin-top: 20px;
-        margin-left: 10px;
-        padding: 12px 30px;
-        border: 2px solid #c45c8a;
-        color: #c45c8a;
-        border-radius: 8px;
-        text-decoration: none;
-      "
-    >
-      ← Back
-    </a>
-  </div>
+            <!-- Fake Review -->
+            <div class="alert alert-light border mb-3" style="font-size: 0.9rem;">
+                <strong>⭐ Verified Buyer</strong><br>
+                <em>"Absolutely love this handcrafted piece! The quality is amazing and it arrived beautifully packaged. Will definitely order again!"</em>
+                <br><small class="text-muted">— Happy Customer</small>
+            </div>
+
+            <h3 class="fw-bold text-success">₹{{ product.price }}</h3>
+            <p class="mt-2">{{ product.description }}</p>
+
+            <a href="{% url 'add_to_cart' product.id %}"
+               class="btn btn-dark w-100 mt-3 py-2 fw-bold">
+                🛒 Add to Cart
+            </a>
+
+            <a href="javascript:history.back()"
+               class="btn btn-outline-secondary w-100 mt-2">
+                ← Back
+            </a>
+        </div>
+
+    </div>
 </div>
 
 {% endblock %}
