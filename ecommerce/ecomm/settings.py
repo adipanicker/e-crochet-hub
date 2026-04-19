@@ -1,7 +1,5 @@
 from pathlib import Path
 import os
-import cloudinary
-import cloudinary_storage
 import dj_database_url
 from django.contrib.messages import constants as messages
 
@@ -23,15 +21,14 @@ CLOUDINARY_STORAGE = {
 # Tell Django to use Cloudinary for media files
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'cloudinary_storage',
     'django.contrib.staticfiles',
-    'cloudinary',
     'app',
 ]
 
@@ -95,7 +92,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 # ── Media files (user uploads) ─────────────────────────────────────────────
 # ⚠️ On Render free tier, media uploads won't persist between deploys.
