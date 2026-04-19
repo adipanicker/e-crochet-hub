@@ -2,16 +2,8 @@
 set -o errexit
 
 pip install -r requirements.txt
-python manage.py collectstatic --noinput --clear
+python manage.py collectstatic --noinput --clear --ignore=cloudinary
 python manage.py migrate
-python manage.py shell -c "
-from app.models import Category
-cats = ['Accessories', 'Clothings', 'Bags', 'Decor Items']
-for c in cats:
-    Category.objects.get_or_create(name=c)
-print('Categories created!')
-"
-
 python manage.py shell -c "
 from django.contrib.auth import get_user_model
 User = get_user_model()
