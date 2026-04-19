@@ -15,9 +15,9 @@ ALLOWED_HOSTS = ['*']
 
 # Cloudinary config
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.environ.get('dilsrizmq'),
-    'API_KEY': os.environ.get('287222988169896'),
-    'API_SECRET': os.environ.get('2JRc3eWImbiquUK8Pm5mD6ajYT0'),
+    'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET'),
 }
 
 # Tell Django to use Cloudinary for media files
@@ -29,9 +29,9 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
-    'cloudinary_storage',
     'app',
 ]
 
