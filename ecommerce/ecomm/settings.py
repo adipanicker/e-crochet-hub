@@ -1,5 +1,7 @@
 from pathlib import Path
 import os
+import cloudinary
+import cloudinary_storage
 import dj_database_url
 from django.contrib.messages import constants as messages
 
@@ -11,6 +13,16 @@ DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = ['*']
 
+# Cloudinary config
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.environ.get('dilsrizmq'),
+    'API_KEY': os.environ.get('287222988169896'),
+    'API_SECRET': os.environ.get('2JRc3eWImbiquUK8Pm5mD6ajYT0'),
+}
+
+# Tell Django to use Cloudinary for media files
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -18,6 +30,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary',
+    'cloudinary_storage',
     'app',
 ]
 
