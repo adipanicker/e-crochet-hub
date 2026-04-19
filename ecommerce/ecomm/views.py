@@ -119,4 +119,3 @@ def dummy(request):
     return HttpResponse("This view is not used.")
 def payment_test(request, order_id):
     return render(request, "payment_test.html", {"order_id": order_id})
-

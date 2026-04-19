@@ -87,25 +87,22 @@ def feedback_page(request):
 
 def accessories(request):
     cat = Category.objects.filter(name__iexact="Accessories").first()
-    products = Product.objects.filter(category=cat)
+    products = Product.objects.filter(category=cat) if cat else []
     return render(request, "accessories.html", {"products": products})
-
 
 def clothings(request):
     cat = Category.objects.filter(name__iexact="Clothings").first()
-    products = Product.objects.filter(category=cat)
+    products = Product.objects.filter(category=cat) if cat else []
     return render(request, "clothings.html", {"products": products})
-
 
 def bags(request):
     cat = Category.objects.filter(name__iexact="Bags").first()
-    products = Product.objects.filter(category=cat)
+    products = Product.objects.filter(category=cat) if cat else []
     return render(request, "bags.html", {"products": products})
-
 
 def decor_items(request):
     cat = Category.objects.filter(name__iexact="Decor Items").first()
-    products = Product.objects.filter(category=cat)
+    products = Product.objects.filter(category=cat) if cat else []
     return render(request, "decor_items.html", {"products": products})
 
 
