@@ -86,9 +86,13 @@ def feedback_page(request):
 # ======================== CATEGORY PAGES =======================
 
 def accessories(request):
-    cat = Category.objects.filter(name__iexact="Accessories").first()
-    products = Product.objects.filter(category=cat) if cat else []
-    return render(request, "accessories.html", {"products": products})
+    try:
+        cat = Category.objects.filter(name__iexact="Accessories").first()
+        products = Product.objects.filter(category=cat) if cat else []
+        return render(request, "accessories.html", {"products": products})
+    except Exception as e:
+        from django.http import HttpResponse
+        return HttpResponse(f"ERROR: {str(e)}", status=500)
 
 def clothings(request):
     cat = Category.objects.filter(name__iexact="Clothings").first()
